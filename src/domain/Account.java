@@ -1,5 +1,13 @@
 package domain;
-
+/*数据库：Mysql
+SQL语句：
+CREATE TABLE `account` (
+`id` INT ( 11 ) NOT NULL AUTO_INCREMENT,
+`name` VARCHAR ( 20 ) DEFAULT NULL,
+`money` DOUBLE DEFAULT NULL,
+PRIMARY KEY ( `id` )
+) ENGINE = INNODB AUTO_INCREMENT = 8 DEFAULT CHARSET = utf8;
+* */
 public class Account {
     private Integer id;
     private String name;

@@ -56,7 +56,7 @@
             <tx:method name="*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
-    <!--把事务增强织入到对应的方法里-->
+    <!--把事务增强织入到对应的方法里 Weaving-->
     <aop:config>
         <!--要对哪个类的哪个方法做增强、切入点-->
         <aop:pointcut id="pointcut" expression="execution(* demo3.AccountServiceImpl.*(..))"/>

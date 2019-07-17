@@ -36,11 +36,11 @@
     </bean>
 
     <!--accountDao-->
-    <bean id="accountDao" class="demo3.AccountDaoImpl">
+    <bean id="accountDao" class="demo4.AccountDaoImpl">
         <property name="dataSource" ref="dbcp"/>
     </bean>
     <!--accountService-->
-    <bean id="accountService" class="demo3.AccountServiceImpl">
+    <bean id="accountService" class="demo4.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
     </bean>
 
@@ -50,17 +50,8 @@
         <property name="dataSource" ref="dbcp"/>
     </bean>
 
-    <!--事务增强-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
-    <!--把事务增强织入到对应的方法里 Weaving-->
-    <aop:config>
-        <!--要对哪个类的哪个方法做增强、切入点-->
-        <aop:pointcut id="pointcut" expression="execution(* demo3.AccountServiceImpl.*(..))"/>
-        <!--写切面-->
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
-    </aop:config>
+    <!--使用注解方式来增强配置-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
 </beans>
